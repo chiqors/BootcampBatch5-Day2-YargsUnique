@@ -30,7 +30,7 @@ function saveContact(name, email, phone) {
     const file = fs.readFileSync(dataPath, 'utf-8');
     const contacts = JSON.parse(file);
     // cek duplikat
-    const duplikat = contacts.find((contact) => contact.name === name);
+    const duplikat = contacts.find((contact) => contact.name.toUpperCase() === name.toUpperCase());
     if (duplikat) {
         console.log('Contact sudah terdaftar, gunakan nama lain!');
         rl.close();
